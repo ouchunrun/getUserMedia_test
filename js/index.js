@@ -118,6 +118,7 @@ function gotStream(stream) {
 
     connectButton.disabled = false;
     console.warn('GetUserMedia succeeded:');
+    console.warn(localVideo)
     localStream = stream;
     localVideo.srcObject = stream;
 }

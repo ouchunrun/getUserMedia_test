@@ -104,6 +104,18 @@ function getMedia() {
 
 
 function gotStream(stream) {
+    var tracks = stream.getTracks();
+    if(tracks && tracks.length > 0){
+        console.warn('set stream onmute');
+        tracks[0].onmute = null;
+        tracks[0].onmute = function(event){
+            console.warn("track onmute: ", event)
+        };
+    }else{
+        console.warn('can not set stream onmute without track');
+        return;
+    }
+
     connectButton.disabled = false;
     console.warn('GetUserMedia succeeded:');
     localStream = stream;
@@ -205,7 +217,7 @@ function createPeerConnection() {
                     // desc2.sdp = desc2.sdp + 'a=imageattr:102 send [x=1920,y=1080] recv [x=1280,y=720]\n'
 
                     console.log('remotePeerConnection answering');
-                    console.warn(`Answer from pc2:\n${desc2.sdp}`);
+                    console.log(`Answer from pc2:\n${desc2.sdp}`);
                     
                     remotePeerConnection.setLocalDescription(desc2);
                     localPeerConnection.setRemoteDescription(desc2);
@@ -335,8 +347,6 @@ setInterval(function() {
             .then(showLocalStats, function(err) {
                 console.log(err);
             });
-    } else {
-        console.log('Not connected yet');
     }
     // Collect some stats from the video tags.
     if (localVideo.videoWidth) {

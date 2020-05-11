@@ -40,9 +40,9 @@
     <h2>getUserMedia Test</h2>
 
     <div>
-        <button id="getMedia">Get media</button>
-        <button id="connect" disabled>Connect</button>
-        <button id="hangup" disabled>Hang Up</button>
+        <button id="getMedia" onclick="getMedia()">Get media</button>
+        <button id="connect" disabled onclick="createPeerConnection()">Connect</button>
+        <button id="hangup" disabled onclick="hangupButton()">Hang Up</button>
     </div>
     
 
@@ -56,11 +56,11 @@
     <section id="video">
         <h4>可以在 chrome://webrtc-internals/ 界面查看视频帧率、分辨率</h4>
         <div id="localVideo">
-            <video playsinline autoplay muted></video>
+            <video playsinline autoplay></video>
             <div></div>
         </div>
         <div id="remoteVideo">
-            <video playsinline autoplay muted></video>
+            <video playsinline autoplay></video>
             <div></div>
             <div id="bitrate"></div>
             <div id="peer"></div>

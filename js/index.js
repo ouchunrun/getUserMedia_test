@@ -12,9 +12,9 @@ var getMediaButton = document.querySelector('button#getMedia');
 var connectButton = document.querySelector('button#connect');
 var hangupButton = document.querySelector('button#hangup');
 
-getMediaButton.onclick = getMedia;
-connectButton.onclick = createPeerConnection;
-hangupButton.onclick = hangup;
+// getMediaButton.onclick = getMedia;
+// connectButton.onclick = createPeerConnection;
+// hangupButton.onclick = hangup;
 
 var getUserMediaConstraintsDiv = document.querySelector('textarea#getUserMediaConstraints');
 var bitrateDiv = document.querySelector('div#bitrate');
